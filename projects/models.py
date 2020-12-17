@@ -8,3 +8,6 @@ class ProjectModel(models.Model):
     # image = models.FilePathField(path="/img")  # , height_field=, width_field=
     repo = models.URLField(blank=True)
     sitio_web = models.URLField(blank=True)
+
+    def __str__(self):
+        return self.title
