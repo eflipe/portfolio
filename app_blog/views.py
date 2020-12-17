@@ -1,12 +1,12 @@
 from django.shortcuts import render
-from app_blog import Post, Comment
-from form import CommentForm
+from app_blog.models import Post, Comment
+from app_blog.form import CommentForm
 
 
 def blog_index(request):
-    posts = Post.objects.all().order_by('-created')
+    posts = Post.objects.all().order_by('-created_on')
     context = {
-        "post": posts,
+        "posts": posts,
     }
     return render(request, "blog_index.html", context)
 
