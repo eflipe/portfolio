@@ -12,6 +12,8 @@
         <a href="{% url 'blog_category' category.name %}">
             {{ category.name }}
         </a>&nbsp;
+        {% empty %}
+        <small class="">No hay info.</small>
         {% endfor %}
     </small>
     <p>{{ post.body | slice:":400" }}...</p>

@@ -13,6 +13,10 @@
     <a href="{{ project.sitio_web}}" class="card-link">Sitio web</a>
     <a href="{{ project.repo}}" class="card-link">Repo Github</a>
   </div>
+  {% empty %}
+  <div class="card-body">
+    <h5 class="">Sin datos.</h5>
+  </div>
 </div>
 </div>
 {% endfor %}
