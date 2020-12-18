@@ -1,26 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
+
 <h1 class=""> Proyectos </h1>
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-{% for project in projects  %}
-  <div class="col mb-4">
-  <div class="card mb-2" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title">{{ project.title }}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ project.techno }}</h6>
-    <p class="card-text">{{ project.description }}</p>
-    <a href="{{ project.sitio_web}}" class="card-link">Sitio web</a>
-    <a href="{{ project.repo}}" class="card-link">Repo Github</a>
-  </div>
-  </div>
-  </div>
-  {% empty %}
-  <div class="card-body">
-    <h5 class="">Sin datos.</h5>
-  </div>
+  {% for project in projects  %}
+    <div class="col mb-4">
+    <div class="card mb-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{ project.title }}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{ project.techno }}</h6>
+      <p class="card-text">{{ project.description }}</p>
+      <a href="{{ project.sitio_web}}" class="card-link">Sitio web</a>
+      <a href="{{ project.repo}}" class="card-link">Repo Github</a>
+    </div>
+    </div>
+    </div>
+    {% empty %}
+    <div class="card-body">
+      <h5 class="">Sin datos.</h5>
+    </div>
 
-{% endfor %}
+  {% endfor %}
 
 </div>
 
