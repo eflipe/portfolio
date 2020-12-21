@@ -9,5 +9,8 @@ class ProjectModel(models.Model):
     repo = models.URLField(blank=True)
     sitio_web = models.URLField(blank=True)
 
+    class Meta:
+        verbose_name_plural = 'Proyectos'
+
     def __str__(self):
         return self.title
