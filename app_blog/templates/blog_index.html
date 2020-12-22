@@ -16,7 +16,7 @@
         <small class="">No hay info.</small>
         {% endfor %}
     </small>
-    <p>{{ post.body | slice:":222" }}...</p>
+    <p>{{ post.body|linebreaks|truncatechars:222 }}...</p>
     {% endfor %}
 </div>
 {% endblock content %}
