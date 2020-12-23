@@ -6,7 +6,7 @@
     {% for post in posts %}
     <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
     <small>
-        {{ post.created_on.date|date:'n M, Y' }} |&nbsp;
+        {{ post.created_on|date:'n M, Y' }} |&nbsp;
         Categorias:&nbsp;
         {% for category in post.categories.all %}
         <a href="{% url 'blog_category' category.name %}">
@@ -16,7 +16,7 @@
         <small class="">No hay info.</small>
         {% endfor %}
     </small>
-    <p>{{ post.body|linebreaks|truncatechars:222 }}...</p>
+    <p>{{ post.body|linebreaks|truncatechars:222 }}</p>
     {% endfor %}
 </div>
 {% endblock content %}
