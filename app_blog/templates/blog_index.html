@@ -18,6 +18,8 @@
         {% endfor %}
     </small>
     <p>{{ post.body| markdown | safe |linebreaks|truncatechars:222 }}</p>
+    <a href="{% url 'blog_detail' post.pk%}">Seguir leyendo</a>
+    <hr>
     {% endfor %}
 </div>
 {% endblock content %}
