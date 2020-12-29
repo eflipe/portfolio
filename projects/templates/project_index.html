@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
+{% load markdown_extras %}
+
 {% block content %}
 
 <h1 class=""> Proyectos </h1>
@@ -10,7 +12,7 @@
     <div class="card-body">
       <h5 class="card-title">{{ project.title }}</h5>
       <h6 class="card-subtitle mb-2 text-muted">{{ project.techno }}</h6>
-      <p class="card-text text-justify">{{ project.description|linebreaks|truncatechars:222 }}</p>
+      <p class="card-text text-justify">{{ project.description| markdown | safe |linebreaks|truncatechars:222 }}</p>
       <a href="{% url 'project_detail' project.pk %}"
                class="btn btn-light">
                 Seguir leyendo

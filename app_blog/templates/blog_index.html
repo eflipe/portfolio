@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
+{% load markdown_extras %}
 <div class="col-md-8 offset-md-2">
     <h1>Blog</h1>
     <hr>
@@ -16,7 +17,7 @@
         <small class="">No hay info.</small>
         {% endfor %}
     </small>
-    <p>{{ post.body|linebreaks|truncatechars:222 }}</p>
+    <p>{{ post.body| markdown | safe |linebreaks|truncatechars:222 }}</p>
     {% endfor %}
 </div>
 {% endblock content %}
