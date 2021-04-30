@@ -1,14 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from app_blog.models import Post, Comment
 from app_blog.form import CommentForm
+from django.views.generic import ListView
 
 
-def blog_index(request):
-    posts = Post.objects.all().order_by('-created_on')
-    context = {
-        "posts": posts,
-    }
-    return render(request, "blog_index.html", context)
+class BlogListView(ListView):
+    queryset = Post.published.all()
+    context_object_name = 'posts'
+    paginate_by = 3
+    template_name = "blog_index.html"
 
 
 def blog_category(request, category):
@@ -24,8 +24,12 @@ def blog_category(request, category):
     return render(request, "blog_category.html", context)
 
 
-def blog_detail(request, pk):
-    post = Post.objects.get(pk=pk)
+def blog_detail(request, year, month, day, post):
+    post = get_object_or_404(Post, slug=post,
+                                   status='published',
+                                   publish__year=year,
+                                   publish__month=month,
+                                   publish__day=day)
 
     form = CommentForm()
     if request.method == 'POST':

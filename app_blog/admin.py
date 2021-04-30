@@ -3,8 +3,9 @@ from app_blog.models import Post, Category, Comment
 
 
 class PostAdmin(admin.ModelAdmin):
-    pass
-
+    list_display = ('title', 'author', 'publish', 'status')
+    prepopulated_fields = {'slug': ('title',)}
+    ordering = ('status', 'publish')
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
