@@ -10,8 +10,26 @@ class CommentForm(forms.Form):
         })
     )
     body = forms.CharField(widget=forms.Textarea(
-    attrs={
-        "class": "form-control",
-        "placeholder": "Comentario..."
-    })
-)
+                           attrs={
+                                "class": "form-control",
+                                "placeholder": "Comentario..."
+                            })
+                           )
+
+
+class EmailPostForm(forms.Form):
+    name = forms.CharField(max_length=25,
+                           widget=forms.TextInput(attrs={
+                            "class": "form",
+                            "placeholder": "Nombre..."
+                            })
+                           )
+    email = forms.EmailField()
+    to = forms.EmailField()
+    comments = forms.CharField(required=False,
+                               widget=forms.Textarea(
+                                attrs={
+                                    "class": "",
+                                    "placeholder": "Comentario..."
+                                    })
+                               )
