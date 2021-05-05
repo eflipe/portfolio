@@ -10,17 +10,28 @@
   </p>
 {% else %}
   <h1>Compartir "{{ post.title }}" via e-mail</h1>
-  <form method="post">
+  <form method="post" class="needs-validation" novalidate>
     {% csrf_token %}
+  <div class="form-col align-items-center">
     {% for field in form %}
-      <div>
-      {{ field.errors }}
+      <div class="col-sm-3 my-1">
       {{ field.label_tag }}
       {{ field }}
+      {% if form.errors %}
+             {% for error in field.errors %}
+                <div class="alert alert-danger">
+                     <strong>{{ error|escape }}</strong>
+                </div>
+             {% endfor %}
+      {% endif %}
       </div>
     {% endfor %}
+  <div class="col-auto my-1">
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+</div>
 
-  <input type="submit" value="Enviar">
+
   </form>
 {% endif %}
 {% endblock %}

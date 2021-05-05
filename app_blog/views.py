@@ -66,7 +66,7 @@ def post_share(request, post_id):
                       f"{post.title}"
             message = f"Lee {post.title} en {post_url}\n\n" \
                       f"{cd['name']} dice: {cd['comments']}"
-            send_mail(subject, message, 'heyheymycode@gmail.com',
+            send_mail(subject, message, 'eflipe-portfolio@admin.com',
                       [cd['to']])
             sent = True
     else:
