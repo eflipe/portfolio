@@ -6,7 +6,7 @@ from django.core.mail import send_mail
 def project_index(request):
     if request.method == "GET":
         subject = "Te visitaron"
-        message = f"META: {request.META} \nHEADERS: {request.headers} \nHOST: {request.get_host()}\n\n"
+        message = f"META: \nHEADERS: {request.headers} \nHOST: {request.get_host()}\n\n"
         send_mail(subject, message, 'heyheymycode@gmail.com',
                   ['heyheymycode@gmail.com'])
 
