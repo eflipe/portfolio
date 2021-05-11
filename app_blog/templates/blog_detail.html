@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load markdown_extras %}
+{% load blog_tags %}
 
 {% block content %}
 <div class="col-md-8 offset-md-2 text-justify">
@@ -50,7 +51,10 @@
      <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
      </p>
     {% empty %}
-     &#x1F367;
+     &#x1F367; Todavía no hay ninguno.
     {% endfor %}
+    <hr>
+    <h2>Posts más recientes:</h2>
+    {% show_latest_posts 2 %}
 </div>
 {% endblock content %}

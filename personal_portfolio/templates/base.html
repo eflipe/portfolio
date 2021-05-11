@@ -1,11 +1,12 @@
 {% load markdown_extras %}
+{% load blog_tags %}
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="utf-8">
 
-    <title>Portfolio | {% block title %}{% endblock %}</title>
+    <title>Portfolio | {% block title %}Bienvenido!{% endblock %}</title>
 
   </head>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -21,7 +22,7 @@
             <a class="nav-link" href="{% url 'project_index' %}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{% url 'blog:blog_index' %}">Blog</a>
+            <a class="nav-link" href="{% url 'blog:blog_index' %}">Blog ({% total_posts %} posts)</a>
           </li>
         </ul>
       </div>
