@@ -115,14 +115,15 @@ STATIC_URL = '/static/'
 import django_heroku
 django_heroku.settings(locals())
 
-if os.environ.get('DEBUG') == 'TRUE':
+if os.environ.get('DEBUG') == 'TRUE' or DEBUG == True :
     DEBUG = True
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 elif os.environ.get('DEBUG') == 'FALSE':
     DEBUG = False
-
-# email config
-EMAIL_HOST = 'smtp.googlemail.com'
-EMAIL_PORT = 587
-EMAIL_HOST_USER = os.environ.get('MAIL_USERNAME')
-EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASSWORD')
-EMAIL_USE_TLS = True
+    # email config
+    EMAIL_HOST = 'smtp.googlemail.com'
+    EMAIL_PORT = 587
+    EMAIL_HOST_USER = os.environ.get('MAIL_USERNAME')
+    EMAIL_HOST_PASSWORD = os.environ.get('MAIL_PASSWORD')
+    EMAIL_USE_TLS = True
