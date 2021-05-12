@@ -18,7 +18,7 @@
         <small class="">No hay info.</small>
         {% endfor %}
     </small>
-    <p>{{ post.body|markdown|truncatewords_html:30 }}</p>
+    <p>{{ post.body|markdown|truncatechars:55 }}</p>
     <a href="{{ post.get_absolute_url }}">Seguir leyendo</a>
     <hr>
     {% endfor %}
