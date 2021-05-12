@@ -1,6 +1,7 @@
 {% extends "base.html" %}
+{% load blog_tags %}
 {% block content %}
-{% load markdown_extras %}
+
 <div class="col-md-8 offset-md-2">
     <h1>Blog</h1>
     <hr>
@@ -17,7 +18,7 @@
         <small class="">No hay info.</small>
         {% endfor %}
     </small>
-    <p>{{ post.body| markdown | safe |linebreaks|truncatewords:15 }}</p>
+    <p>{{ post.body|markdown|truncatechars:55 }}</p>
     <a href="{{ post.get_absolute_url }}">Seguir leyendo</a>
     <hr>
     {% endfor %}

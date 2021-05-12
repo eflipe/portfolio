@@ -1,5 +1,4 @@
 {% extends "base.html" %}
-{% load markdown_extras %}
 {% load blog_tags %}
 
 {% block content %}
@@ -22,7 +21,7 @@
 
 
     </small>
-    <p>{{ post.body | markdown | safe | linebreaks}}</p>
+    <p>{{ post.body|markdown|linebreaks}}</p>
 
     <!-- {# <h3>Leave a comment:</h3>
     <form action="/blog/{{ post.pk }}/" method="post">

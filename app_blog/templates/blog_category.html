@@ -1,5 +1,7 @@
 {% extends "base.html" %}
+{% load blog_tags %}
 {% block content %}
+
 <div class="col-md-8 offset-md-2">
     <h1>{{ category | title }}</h1>
     <hr>
@@ -16,7 +18,9 @@
             <small class="">No hay categorias</small>
             {% endfor %}
         </small>
-        <p>{{ post.body | slice:":400" }}...</p>
+        <p>{{ post.body|markdown|truncatewords_html:30 }}</p>
+        <a href="{{ post.get_absolute_url }}">Seguir leyendo</a>
+        <hr>
     {% endfor %}
 </div>
 {% endblock content %}
